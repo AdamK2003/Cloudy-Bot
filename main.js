@@ -81,8 +81,8 @@ if(process.env.ENVIRONMENT == "testing") {
     client.user.setPresence({
       status: 'online',
       activity: {
-          name: "Changed my mind.Nixus better than Pulse.",
-          type: "WATCHING"
+          name: "Visual Studio Code",
+          type: "PLAYING"
       }
   })
 }
