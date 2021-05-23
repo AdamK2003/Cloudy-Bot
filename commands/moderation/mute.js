@@ -31,14 +31,14 @@ module.exports.run =(client, message, args) => {
      }
 
        const embed = new MessageEmbed()
-       .setColor("#ffff00")
+       .setColor("#ff8400")
        .setAuthor(`By ${message.author.tag}`, message.author.displayAvatarURL())
-       .addField(`Mute!`, `${message.author.tag} muted ${user.tag}`)
-       .addField(`Reason:`, `${reason}`)
+       .addField(`**Mute! 🔇**`, `${message.author.tag} muted ${user.tag}`)
+       .addField(`**Reason:**`, `\`${reason}\``)
        .setTimestamp()
        
          message.channel.send(embed).then(async m => {
-            await client.channels.cache.get("801757379573448723").send(embed);
+            await client.channels.cache.get("846084525636845599").send(embed);
             target.roles.add(role);
          })
          

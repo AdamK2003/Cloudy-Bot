@@ -50,6 +50,13 @@ report.save()
 .then(result => console.log(result))
 .catch(err => console.log(err));
 
-message.reply('Warned ' + rUser.user.tag + '! Reason: '+rReason)
+const embed = new MessageEmbed()
+       .setColor("#f5ed00") 
+       .setAuthor(`By ${message.author.tag}`, message.author.displayAvatarURL())
+       .addField(`**Warn! ⛔**`, `${message.author.tag} warned ${user.tag}!`)
+       .addField(`**Reason**:`, `\`${reason}\``)
+       .setTimestamp()
+
+       message.channel.send(embed)
 
 }

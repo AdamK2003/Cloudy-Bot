@@ -2,8 +2,6 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports.run =(client, message, args) => {
 
-   // if(message.author.id == "801763466968432640") return message.channel.send('https://media.discordapp.net/attachments/829012985598050376/840534974091624448/troll.jpg');
-
    const user = message.mentions.users.first();
       const target = message.guild.member(user);
 
@@ -11,11 +9,10 @@ module.exports.run =(client, message, args) => {
       let role = message.guild.roles.cache.find(r => r.name === roleName);
 
       if(!roleName) return(message.channel.send(`Please specify which role you want to add to ${user} by saying the role name.`));
-      if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send('You can\'t use that!');
-        if(!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send('I don\'t have the right permissions.');
+      if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send('You can\'t use that!');
+        if(!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send('I don\'t have the right permissions.');
         if(!member) return message.channel.send('Can\'t seem to find this user.');
         if(!member.bannable) return message.channel.send('This user can\'t be banned. It is either because they are a mod/admin, or their highest role is higher than mine');
-        if(member.id === message.author.id) return message.channel.send('You can\'t ban yourself!');
         if(message.member.roles.highest.position < target.roles.highest.position) {
          return message.channel.send('You do not have a high enough role to add this member a role!')
      }
@@ -29,7 +26,7 @@ module.exports.run =(client, message, args) => {
 
          target.roles.add(role).then(async m => {
             await message.channel.send(embed);
-            client.channels.cache.get("823962434703327253").send(embed);
+            client.channels.cache.get("846084525636845599").send(embed);
          })
 };
 

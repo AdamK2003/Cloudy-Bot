@@ -12,7 +12,6 @@ module.exports.run =(client, message, args) => {
        if(!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send('I don\'t have the right permissions.');
        if(!target) return message.channel.send('Can\'t seem to find this user.');
        if(message.member.roles.highest.position < target.roles.highest.position) {
-         return message.channel.send('You do not have a high enough role to unmute this member!')
      }
 
        const embed = new MessageEmbed()
@@ -22,7 +21,7 @@ module.exports.run =(client, message, args) => {
        .setTimestamp()
 
          message.channel.send(embed).then(async m => {
-            await client.channels.cache.get("801757379573448723").send(embed);
+            await client.channels.cache.get("846084525636845599").send(embed);
             target.roles.remove(role);
          })
 };

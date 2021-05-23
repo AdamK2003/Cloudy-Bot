@@ -27,7 +27,7 @@ module.exports.run =(client, message, args) => {
        .setTimestamp()
 
        target.kick().then(async m => {
-            await client.channels.cache.get("801757379573448723").send(embed);
+            await client.channels.cache.get("846084525636845599").send(embed);
             message.channel.send(embed);
             user.kick();
          })

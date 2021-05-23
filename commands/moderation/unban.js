@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args) => {
        if (!user) return message.channel.send("No users was find with this ID!");
 
          message.channel.send(embed).then(async m => {
-            await client.channels.cache.get("801757379573448723").send(embed);
+            await client.channels.cache.get("846084525636845599").send(embed);
             target.unban();
          })
 };
