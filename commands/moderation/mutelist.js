@@ -30,7 +30,7 @@ module.exports.run = async (client, message, args) => {
 Mutes.find({ userID: rUser.id, guildID: message.guild.id }, (err, arr) => {
 
 const embed = new Discord.MessageEmbed()
-    .setColor("#ffff00")
+    .setColor("#ff8400")
     .setTitle("Mutes for " + rUser.user.tag);
 
 if(arr.length == 0) {

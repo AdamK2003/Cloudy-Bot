@@ -29,7 +29,7 @@ module.exports.run = async (client, message, args) => {
 Report.find({ userID: rUser.id, guildID: message.guild.id }, (err, arr) => {
 
 const embed = new Discord.MessageEmbed()
-    .setColor("#ffff00")
+    .setColor("#f5ed00")
     .setTitle("Warns for " + rUser.user.tag);
 
 if(arr.length == 0) {

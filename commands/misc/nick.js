@@ -1,7 +1,5 @@
 module.exports.run =(client, message, args) => {
    let target = message.mentions.members.first();
-   // if(message.author.id == "801763466968432640") return message.channel.send('https://media.discordapp.net/attachments/829012985598050376/840534974091624448/troll.jpg');
-
 
       if(!target) {
          let nick = args.slice(0).join(' ');

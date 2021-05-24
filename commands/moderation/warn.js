@@ -28,7 +28,7 @@ module.exports.run = async (client, message, args) => {
         return message.channel.send("Nope!");
     }
     if(message.member.roles.highest.position < target.roles.highest.position) {
-        return message.channel.send('You do not have a high enough role to warn this member!')
+        message.channel.send('You do not have a high enough role to warn this member!')
     }
     let rUser = message.mentions.members.first();
     if(!rUser) return message.reply("Invalid user!")

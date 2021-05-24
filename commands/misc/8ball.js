@@ -3,15 +3,15 @@ module.exports.run =(client, message, args) => {
 
    function randomnumb() {
     var rand = [
-      "Yes",
-      "No",
-      "Maybe",
-      "Idk lol",
-      "Ask Jurassic",
+      "Yes.",
+      "No.",
+      "Maybe.",
+      "I don't know.",
+      "Ask someone else.",
       "Ummm",
-      "No lmao",
-      "Ofc",
-      "I cannot say it"
+      "No lmao!",
+      "Of course!",
+      "I cannot say it..."
     ];
 
     return rand[Math.floor(Math.random() * rand.length)];
