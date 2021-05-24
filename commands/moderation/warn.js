@@ -58,6 +58,5 @@ const embed = new MessageEmbed()
        .addField(`**Reason**:`, `\`${reason}\``)
        .setTimestamp()
 
-       message.channel.send(embed)
-
+       message.channel.send(embed);
 }
