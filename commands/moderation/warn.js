@@ -7,6 +7,7 @@ mongoose.connect(db)
 
 const Warn = require(process.env.ROOTDIR + '/models/warn.js')
 
+const { MessageEmbed } = require("discord.js");
 
 const Discord = require('discord.js')
 
