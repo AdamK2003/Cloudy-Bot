@@ -60,7 +60,7 @@ module.exports.run =(client, message, args) => {
 module.exports.help = {
    name: "mute",
    aliases: ['mute'],
-   category: 'moderation',
+   category: 'Moderation',
    description: "mute a user",
    usage: "(member) (reason)",
    cooldown: 0,

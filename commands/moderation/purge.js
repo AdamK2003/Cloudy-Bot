@@ -32,7 +32,7 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
    name: "purge",
    aliases: ['purge'],
-   category: 'moderation',
+   category: 'Moderation',
    description: "Delete a certain amount of messages (between 1 and 100 at a time)",
    usage: "<amount>",
    cooldown: 15,

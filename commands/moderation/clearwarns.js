@@ -12,7 +12,7 @@ const Discord = require('discord.js')
 module.exports.help = {
     name: "clearwarns",
     aliases: ['clearwarns', 'delwarn'],
-    category: 'moderation',
+    category: 'Moderation',
     description: "Clear someone's warns.",
     usage: "<mention>",
     cooldown: 0,

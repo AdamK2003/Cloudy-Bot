@@ -29,7 +29,7 @@ module.exports.run =(client, message, args) => {
 module.exports.help = {
    name: "removerole",
    aliases: ['removerole', 'remove', 'rrole'],
-   category: 'moderation',
+   category: 'Moderation',
    description: "remove a role from a member",
    usage: "(member) (role)",
    cooldown: 6,

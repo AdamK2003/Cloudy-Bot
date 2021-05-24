@@ -12,7 +12,7 @@ const Discord = require('discord.js')
 module.exports.help = {
     name: "removemutes",
     aliases: ['removemutes','removemute'],
-    category: 'moderation',
+    category: 'Moderation',
     description: "Remove a mute from the mutelist.",
     usage: "<muteID>",
     cooldown: 0,

@@ -31,7 +31,7 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
    name: "ban",
    aliases: ['ban'],
-   category: 'moderation',
+   category: 'Moderation',
    description: "Ban a user",
    usage: "(user) <reason>",
    cooldown: 0,

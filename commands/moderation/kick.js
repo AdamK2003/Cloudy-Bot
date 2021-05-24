@@ -37,7 +37,7 @@ module.exports.run =(client, message, args) => {
 module.exports.help = {
    name: "kick",
    aliases: ['kick'],
-   category: 'moderation',
+   category: 'Moderation',
    description: "kick a user",
    usage: "(member) (reason)",
    cooldown: 0,

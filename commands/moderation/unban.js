@@ -27,7 +27,7 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
    name: "unban",
    aliases: ['unban'],
-   category: 'moderation',
+   category: 'Moderation',
    description: "Unban a user",
    usage: "(user.id)",
    cooldown: 0,

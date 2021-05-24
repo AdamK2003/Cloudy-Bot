@@ -33,7 +33,7 @@ module.exports.run =(client, message, args) => {
 module.exports.help = {
    name: "addrole",
    aliases: ['addr', 'giverole', 'give'],
-   category: 'moderation',
+   category: 'Moderation',
    description: "give a role to a member",
    usage: "(member) (role)",
    cooldown: 6,

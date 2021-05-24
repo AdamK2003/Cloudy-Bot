@@ -15,7 +15,7 @@ const Discord = require('discord.js')
 module.exports.help = {
     name: "history",
     aliases: ['history','punishement'],
-    category: 'moderation',
+    category: 'Moderation',
     description: "Check someone's punishement.",
     usage: "<mention>",
     cooldown: 0,

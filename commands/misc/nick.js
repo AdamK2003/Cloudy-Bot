@@ -2,6 +2,7 @@ module.exports.run =(client, message, args) => {
    let target = message.mentions.members.first();
 
       if(!target) {
+         if(!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send('I don\'t have the right permissions.');
          let nick = args.slice(0).join(' ');
          message.member.setNickname(nick);
          if(nick) return message.channel.send(`${message.author} changed his nickname to **${nick}**!`);
