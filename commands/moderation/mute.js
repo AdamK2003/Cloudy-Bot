@@ -24,6 +24,8 @@ module.exports.run =(client, message, args) => {
        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('You can\'t use that!');
        if(!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send('I don\'t have the right permissions.');
        if(!target) return message.channel.send('Can\'t seem to find this user.');
+       if(message.member.roles.highest.position < target.roles.highest.position) {
+         message.channel.send('You do not have a high enough role to mute this member!'); }
 
        const embed = new MessageEmbed()
        .setColor("#ff8400")

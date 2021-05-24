@@ -1,8 +1,9 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
+   const user = message.mentions.users.first();
+   const target = message.guild.member(user);
    
-   const user = await client.users.fetch(args [0]);
    let reason = args.slice(1).join(' ');
    if(!reason) reason = "Undefined";
 
@@ -11,8 +12,7 @@ module.exports.run = async (client, message, args) => {
        if(!target) return message.channel.send('Can\'t seem to find this user.');
        if(!reason) return(reason = "No reason were specified");
        if(message.member.roles.highest.position < target.roles.highest.position) {
-         return message.channel.send('You do not have a high enough role to ban this member!')
-     }
+         message.channel.send('You do not have a high enough role to mute this member!'); }
 
        const embed = new MessageEmbed()
        .setColor("#ffff00") 
