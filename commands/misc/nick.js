@@ -2,7 +2,7 @@ module.exports.run =(client, message, args) => {
    let target = message.mentions.members.first();
 
       if(!target) {
-         if(!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send('I don\'t have the right permissions.');
+         if(!message.guild.me.hasPermission("CHANGE_NICKNAME")) return message.channel.send('I don\'t have the right permissions.');
          let nick = args.slice(0).join(' ');
          message.member.setNickname(nick);
          if(nick) return message.channel.send(`${message.author} changed his nickname to **${nick}**!`);
@@ -10,7 +10,7 @@ module.exports.run =(client, message, args) => {
       } else {
 
          if(message.member.roles.highest.position < target.roles.highest.position) {
-            return message.channel.send('You do not have a high enough role to change this member\'s nickname')
+         message.channel.send('You do not have a high enough role to change this member\'s nickname')
          }
          
          let nick = args.slice(1).join(' ');
