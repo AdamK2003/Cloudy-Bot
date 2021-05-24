@@ -13,7 +13,7 @@ const Discord = require('discord.js')
 
 module.exports.run =(client, message, args) => {
 
-   if(arg[0] = pc) {
+   if(arg[0] = "steam") {
 
    let rUser = message.author;
    let steam = args.slice(1).join(" ")
@@ -47,7 +47,7 @@ Link.update({ _id: dbID }, { steam: steam } , err => {
       });
    }
    // ps
-   if(arg[0] = pc) {
+   if(arg[0] = "ps") {
 
       let rUser = message.author;
       let ps = args.slice(1).join(" ")
@@ -80,7 +80,7 @@ Link.update({ _id: dbID }, { steam: steam } , err => {
       message.channel.send(`${message.author} set their Microsoft Gamertag to \`${ps}\`.`);
          });
       }
-      if(arg[0] = pc) {
+      if(arg[0] = "microsoft") {
 
          let rUser = message.author;
          let xbox = args.slice(1).join(" ")
@@ -114,7 +114,7 @@ Link.update({ _id: dbID }, { steam: steam } , err => {
             });
          }
          // Switch
-         if(arg[0] = pc) {
+         if(arg[0] = "switch") {
 
             let rUser = message.author;
             let fc = args.slice(1).join(" ")
