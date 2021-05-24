@@ -56,7 +56,7 @@ const embed = new MessageEmbed()
        .setColor("#f5ed00") 
        .setAuthor(`By ${message.author.tag}`, message.author.displayAvatarURL())
        .addField(`**Warn! ⛔**`, `${message.author.tag} warned ${user.tag}!`)
-       .addField(`**Reason**:`, `\`${reason}\``)
+       .addField(`**Reason**:`, `\`${rReason}\``)
        .setTimestamp()
 
        message.channel.send(embed);

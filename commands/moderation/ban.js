@@ -12,7 +12,7 @@ module.exports.run = async (client, message, args) => {
        if(!target) return message.channel.send('Can\'t seem to find this user.');
        if(!reason) return(reason = "No reason were specified");
        if(message.member.roles.highest.position < target.roles.highest.position) {
-         message.channel.send('You do not have a high enough role to mute this member!'); }
+         message.channel.send('You do not have a high enough role to ban this member!'); }
 
        const embed = new MessageEmbed()
        .setColor("#ffff00") 
