@@ -29,7 +29,7 @@ module.exports.run = async (client, message, args) => {
     if(!rUser) return message.channel.send("Invalid user!")
 
     const embed = new Discord.MessageEmbed()
-    .setColor("#ffff00")
+    .setColor("#383838")
     .setTitle("Punishements of " + rUser.user.tag);
 
 Report.find({ userID: rUser.id, guildID: message.guild.id }, (err, arr) => {
