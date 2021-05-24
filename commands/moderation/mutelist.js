@@ -13,7 +13,7 @@ const Discord = require('discord.js')
 module.exports.help = {
     name: "getmutes",
     aliases: ['getmutes', 'mutes'],
-    category: 'Moderation',
+    category: 'History',
     description: "Check someone's mutes.",
     usage: "<mention>",
     cooldown: 0,

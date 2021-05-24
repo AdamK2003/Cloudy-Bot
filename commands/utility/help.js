@@ -9,7 +9,7 @@ module.exports.run =(client, message, args) => {
 
    if (!args.length) {
       const embed = new MessageEmbed()
-      .setColor("RANDOM")
+      .setColor("#4103fc")
       .setTitle("------Help command------")
       .addField("Commands List", `A list of all commnds available on the server with an help on how to use them!\n\n**For more informations about a specific command please type \`${process.env.PREFIX}help (Command Name)\`**`)
 
@@ -25,7 +25,7 @@ module.exports.run =(client, message, args) => {
       const command = client.commands.get(args[0]) || client.commands.find(cmd => cmd.help.aliases && cmd.help.aliases.includes(args[0]));
 
       const embed = new MessageEmbed()
-      .setColor("RANDOM")
+      .setColor("#4103fc")
       .setTitle(`**${command.help.name} Command**`)
       .addField("Decription:", `${command.help.description} (cd: ${command.help.cooldown}s)`)
       .addField("How to use:", command.help.usage ? `${process.env.PREFIX}${command.help.name} ${command.help.usage}` : `${process.env.PREFIX}${command.help.name}`, true)

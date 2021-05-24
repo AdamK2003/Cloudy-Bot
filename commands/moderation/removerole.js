@@ -15,7 +15,7 @@ module.exports.run =(client, message, args) => {
              if(!target) return message.channel.send('Can\'t seem to find this user.');
 
       const embed = new MessageEmbed()
-       .setColor("#f20000")
+       .setColor("#c40000")
        .setAuthor(`By ${message.author.tag}`, message.author.displayAvatarURL())
        .addField(`Role Removed!`, `${message.author.tag} removed the ${role.name} role from ${user.tag}`)
        .setTimestamp()
@@ -29,7 +29,7 @@ module.exports.run =(client, message, args) => {
 module.exports.help = {
    name: "removerole",
    aliases: ['removerole', 'remove', 'rrole'],
-   category: 'Moderation',
+   category: 'moderation',
    description: "remove a role from a member",
    usage: "(member) (role)",
    cooldown: 6,

@@ -13,12 +13,11 @@ module.exports.run =(client, message, args) => {
         if(!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send('I don\'t have the right permissions.');
         if(!member) return message.channel.send('Can\'t seem to find this user.');
         if(!member.bannable) return message.channel.send('This user can\'t be banned. It is either because they are a mod/admin, or their highest role is higher than mine');
-        if(message.member.roles.highest.position < target.roles.highest.position) {
-         return message.channel.send('You do not have a high enough role to add this member a role!')
-     }
+        if(message.member.roles.highest.position < role.roles.highest.position) {
+         message.channel.send('You do not have a high enough role to add this role to this member!'); }
 
        const embed = new MessageEmbed()
-       .setColor("#ffff00")
+       .setColor("#25de00")
        .setAuthor(`By ${message.author.tag}`, message.author.displayAvatarURL())
        .addField(`Role Added!`, `${message.author.tag} added the ${role.name} role to ${user.tag}`)
        .setTimestamp()
@@ -33,7 +32,7 @@ module.exports.run =(client, message, args) => {
 module.exports.help = {
    name: "addrole",
    aliases: ['addr', 'giverole', 'give'],
-   category: 'Moderation',
+   category: 'moderation',
    description: "give a role to a member",
    usage: "(member) (role)",
    cooldown: 6,

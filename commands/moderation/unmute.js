@@ -29,7 +29,7 @@ module.exports.run =(client, message, args) => {
 module.exports.help = {
    name: "unmute",
    aliases: ['unmute', 'unmoot'],
-   category: 'Moderation',
+   category: 'moderation',
    description: "Unmute a user",
    usage: "(member) (reason)",
    cooldown: 0,

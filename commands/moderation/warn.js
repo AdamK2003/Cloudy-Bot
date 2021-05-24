@@ -14,7 +14,7 @@ const Discord = require('discord.js')
 module.exports.help = {
     name: "warn",
     aliases: ['warn'],
-    category: 'Moderaion',
+    category: 'moderation',
     description: "Warn someone.",
     usage: "<mention> <reason>",
     cooldown: 0,
