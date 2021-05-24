@@ -45,7 +45,7 @@ module.exports.run =(client, message, args) => {
    
       message.channel.send(`${message.author} set their steam ID to \`${steam}\`.`);
          });
-      } if(args[0] = "switch") {
+      } else if(args[0] = "switch") {
 
          let rUser = message.author;
          let fc = args.slice(1).join(" ")
