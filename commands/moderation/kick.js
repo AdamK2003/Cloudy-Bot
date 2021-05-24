@@ -16,8 +16,9 @@ module.exports.run =(client, message, args) => {
          if(member.id === message.author.id) return message.channel.send('You can\'t ban yourself!');
        if(!reason) return(reason = "No reason were specified");
        if(message.member.roles.highest.position < target.roles.highest.position) {
-         return message.channel.send('You do not have a high enough role to kick this member!')
-     }
+         return message.channel.send('You do not have a high enough role to kick this member!'); }
+         if(message.author = target) return message.channel.send("Umm...You can't kick yourself?");
+
 
        const embed = new MessageEmbed()
        .setColor("#ffff00")

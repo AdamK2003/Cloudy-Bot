@@ -13,6 +13,7 @@ module.exports.run = async (client, message, args) => {
        if(!reason) return(reason = "No reason were specified");
        if(message.member.roles.highest.position < target.roles.highest.position) {
          message.channel.send('You do not have a high enough role to ban this member!'); }
+      if(message.author = target) return message.channel.send("Umm...You can't ban yourself?");
 
        const embed = new MessageEmbed()
        .setColor("#ffff00") 

@@ -26,6 +26,8 @@ module.exports.run =(client, message, args) => {
        if(!target) return message.channel.send('Can\'t seem to find this user.');
        if(message.member.roles.highest.position < target.roles.highest.position) {
          message.channel.send('You do not have a high enough role to mute this member!'); }
+         if(message.author = target) return message.channel.send("Umm...You can't mute yourself?");
+
 
        const embed = new MessageEmbed()
        .setColor("#ff8400")
