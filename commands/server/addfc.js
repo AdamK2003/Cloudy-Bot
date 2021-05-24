@@ -50,7 +50,7 @@ FC.update({ _id: dbID }, { fc: fc } , err => { // replace exp: expVal with fc: f
 module.exports.help = {
    name: "addfc",
    aliases: ['addfc', 'setfc'],
-   category: 'moderation',
+   category: 'server',
    description: "Set the friend code of message author",
    usage: "<fc here>",
    cooldown: 6,
