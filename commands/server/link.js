@@ -5,7 +5,7 @@ const db = process.env.DB
 
 mongoose.connect(db)
 
-const Link = require(process.env.ROOTDIR + '/models/link.js')
+const Link = require(process.env.ROOTDIR + '/models/links.js')
 
 
 const Discord = require('discord.js')
