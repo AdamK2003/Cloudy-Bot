@@ -5,54 +5,75 @@ const db = process.env.DB
 
 mongoose.connect(db)
 
-const FC = require(process.env.ROOTDIR + '/models/fcs.js')
+const FC = require(process.env.ROOTDIR + '/models/links.js')
 
 
 const Discord = require('discord.js')
 
 
-module.exports.run =(client, message, args) => {
+module.exports.run = (client, message, args) => {
+   var platform = [
+      "ps",
+      "PS",
+      "Ps",
+      "pS",
+      "Switch",
+      "swicth",
+      "xbox",
+      "Xbox",
+      "Microsoft",
+      "Steam",
+      "steam",
+      "pc",
+      "PC",
+      "Pc",
+      "nintendo",
+      "Nintendo"
+    ];
 
-   let rUser = message.author;
-   let fc = args.slice(0).join(" ")
-   if(!fc) return message.reply("Please supply a friend code.")
+    let rUser = message.author;
+    let fc = args.slice(1).join(" ")
+    let type = args[0]
+    if (!fc) return message.reply("Please supply a friend code.")
+    if (fc != platform) return message.reply("Please supply a platform to set your fc/Gamertag/ID on!\nPlatforms: Pc,Ps,Xbox and Switch.")
 
-FC.find({ userID: message.author.id }, (err, arr) => {
+    FC.find({ userID: message.author.id, type: type }, (err, arr) => {
 
- if(!arr[0]) {
-   const fcs = new FC({
-       _id: mongoose.Types.ObjectId(),
-       userID: message.author.id,
-       fc: fc
-   })
-   
-   fcs.save()
-.then(result => console.log(result))
-.catch(err => console.log(err));
+        if (!arr[0]) {
+            const fcs = new FC({
+                _id: mongoose.Types.ObjectId(),
+                userID: message.author.id,
+                fc: fc,
+                type: type
+            })
 
-   message.channel.send(`${message.author} set their fc to \`${fc}\``);
-   message.delete();
+            fcs.save()
+                .then(result => console.log(result))
+                .catch(err => console.log(err));
 
-   return
-    }
+            message.channel.send(`${message.author} set their Fc/Gamertag/ID for platform \`${type}\` to \`${fc}\``);
+            message.delete();
 
-    let dbID = arr[0]._id
+            return
+        }
 
-FC.update({ _id: dbID }, { fc: fc } , err => { // replace exp: expVal with fc: fc
-    if(err) return console.log("An error has occurred when updating DB entry!\n\n" + err)
-    })
+        let dbID = arr[0]._id
 
-   message.channel.send(`${message.author} set their fc to \`${fc}\``);
-   message.delete();
-});
+        FC.update({ _id: dbID }, { fc: fc }, err => { // replace exp: expVal with fc: fc
+            if (err) return console.log("An error has occurred when updating DB entry!\n\n" + err)
+        })
+
+        message.channel.send(`${message.author} set their fc to \`${fc}\``);
+        message.delete();
+    });
 }
 
 module.exports.help = {
-   name: "addfc",
-   aliases: ['addfc', 'setfc'],
-   category: 'server',
-   description: "Set the friend code of message author",
-   usage: "<fc here>",
-   cooldown: 6,
-   args: true
-};     
+    name: "link",
+    aliases: ['link', 'linkfc'],
+    category: 'server',
+    description: "Set the friend code/Gamertag/ID of message author for platform",
+    usage: "<platform> <Fc/Gamertag/ID>",
+    cooldown: 6,
+    args: true
+};
