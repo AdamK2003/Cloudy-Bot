@@ -13,13 +13,13 @@ const Discord = require('discord.js')
 
 module.exports.run = (client, message, args) => {
    var platform = [
-      "PS",
-      "Switch",
-      "Xbox",
-      "Microsoft",
-      "Steam",
-      "Pc",
-      "Nintendo"
+      "ps",
+      "switch",
+      "xbox",
+      "microsoft",
+      "steam",
+      "pc",
+      "nintendo"
     ];
 
     let rUser = message.author;
