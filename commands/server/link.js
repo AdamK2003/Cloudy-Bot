@@ -33,7 +33,7 @@ module.exports.run = (client, message, args) => {
 
     let rUser = message.author;
     let fc = args.slice(1).join(" ")
-    let type = args[0].toLowercase()
+    let type = args[0].toLowerCase()
     if (!fc) return message.reply("Please supply a friend code.")
     if(!platform.includes(type)) return message.reply("Please supply a platform to set your fc/Gamertag/ID on!\nPlatforms: Pc,Ps,Xbox and Switch.")
     
