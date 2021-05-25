@@ -12,7 +12,7 @@ const Discord = require('discord.js')
 
 
 module.exports.run = (client, message, args) => {
-   var type = [
+   var platform = [
       "PS",
       "Switch",
       "Xbox",
