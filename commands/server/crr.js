@@ -1,4 +1,4 @@
-module.exports.run =(client, message, args, async) => {
+module.exports.run =(client, message, args) => {
    message.delete();
 
    let roleName = args.slice(0).join(' ')
@@ -16,16 +16,6 @@ module.exports.run =(client, message, args, async) => {
    message.channel.send(`React to this message with ${emote} to get the \`${roleName}\` role!`).then(async m => { 
       m.react(emote);
    })
-   const userReactions = message.reactions.cache.filter(reaction => reaction.users.cache.has(userId));
-try {
-	for (const reaction of userReactions.values()) {
-		await reaction.users.remove(userId);
-      users.roles.add(roleC);
-	}
-} catch (error) {
-	console.error('Failed to remove reactions or to add the role.');
-}
-
 };
 
 module.exports.help = {
