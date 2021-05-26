@@ -1,7 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run =(client, message, args) => {
-   // if(message.author.id == "801763466968432640") return message.channel.send('https://media.discordapp.net/attachments/829012985598050376/840534974091624448/troll.jpg');
 
          const user_mention = message.mentions.users.first();
 
