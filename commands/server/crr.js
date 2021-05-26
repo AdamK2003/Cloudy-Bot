@@ -4,7 +4,7 @@ module.exports.run =(client, message, args) => {
    let roleName = args.slice(0).join(' ')
    let roleC = message.guild.roles.cache.find(r => r.name === roleName)
 
-   let emote =  args.slice(1).join(' ');
+   let emote =  args[1];
 
    if(!message.guild.roles.cache.find(r => r.name === roleName)) { message.channel.send("Invalid role!") };
    if(!roleName) return(message.channel.send(`Please specify a role name.Be careful to cap letter,this command is case sinsitive.`));
@@ -17,7 +17,7 @@ module.exports.run =(client, message, args) => {
       m.react(emote);
    })
 
-   let target = message.guild.member
+   let target = guild.member
 
    if (target.react) {
       target.roles.add(role)
