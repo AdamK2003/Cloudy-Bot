@@ -17,13 +17,14 @@ module.exports.run =(client, message, args) => {
       m.react(emote);
    })
    if (!user.bot) {
-      if (reaction.emoji.id == emote) { //if the user reacted with the right emoji
+      if (reaction.emoji.id == emote) {
 
-          const { guild } = reaction.message //store the guild of the reaction in variable
+          const { guild } = reaction.message
 
           const member = guild.members.cache.find(member => member.id === user.id); //find the member who reacted (because user and member are seperate things)
+          const target = message.guild.member(user);
 
-          member.roles.add(roleC); //assign selected role to member
+         target.roles.add(roleC);
 
       }}
 };
