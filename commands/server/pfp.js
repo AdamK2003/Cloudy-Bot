@@ -8,14 +8,14 @@ module.exports.run =(client, message, args) => {
 
             const embed = new MessageEmbed()
             .setColor("#4103fc")
-            .addField(`Pfp of ${message.author.tag}`, ` ${message.author.displayAvatarURL({ format : 'png'})}}`)
+            .addField(`Pfp of ${message.author.tag}`, ` ${message.author.avatarURL}`)
             
             return message.channel.send(embed);
          } else {
 
             const embed = new MessageEmbed()
             .setColor("#4103fc")
-            .addField(`Pfp of ${message.author.tag}`, ` ${user_mention.displayAvatarURL({ format : 'png'})}}`)
+            .addField(`Ptofile picture of ${message.author.tag}`, ` ${user_mention.avatarURL}`)
            
             return message.channel.send(embed);
          }
