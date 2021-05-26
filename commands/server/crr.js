@@ -13,19 +13,11 @@ module.exports.run =(client, message, args) => {
      if(message.member.roles.highest.position < roleC) {
       message.channel.send('You do not have a high enough role to add this role to a react role message.'); }
 
-   message.channel.send(`React to this message with ${emote} to get the \`${roleName}\` role!`).then(async m => { 
-      await m.react(emote);
+   message.channel.send(`React to this message with ${emote} to get the ${roleName} role!`).then(async m => { 
+      m.react(emote);
 
-      const userReactions = message.reactions.cache.filter(reaction => reaction.users.cache.has(userId));
-      try {
-         for (const reaction of userReactions.values()) {
-            await reaction.users.remove(userId);
-            users.roles.add(roleC);
-         }
-      } catch (error) {
-         console.error('Failed to remove reactions or to add the role.');
-      }
-})
+      if(message.reaction.users) return(users.roles.add(role));
+   })
 };
 
 module.exports.help = {
