@@ -12,7 +12,6 @@ module.exports.run =(client, message, args) => {
       if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send('You can\'t use that!');
         if(!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send('I don\'t have the right permissions.');
         if(!member) return message.channel.send('Can\'t seem to find this user.');
-        if(!member.bannable) return message.channel.send('This user can\'t be banned. It is either because they are a mod/admin, or their highest role is higher than mine');
         if(message.member.roles.highest.position < role.roles.highest.position) {
          message.channel.send('You do not have a high enough role to add this role to this member!'); }
 
