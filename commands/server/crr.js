@@ -1,4 +1,4 @@
-module.exports.run =(client, message, args) => {
+module.exports.run =(client, message, args, async) => {
    message.delete();
 
    let roleName = args.slice(0).join(' ')
