@@ -1,10 +1,10 @@
 module.exports.run =(client, message, args) => {
    message.delete();
 
-   let roleName = args.slice(0).join(' ')
+   let roleName = args.slice(0, (args.length - 2)).join(' ')
    let roleC = message.guild.roles.cache.find(r => r.name === roleName)
 
-   let emote =  args[1];
+   let emote =  args[(args.length - 1)];
 
    if(!message.guild.roles.cache.find(r => r.name == roleName)) return(message.channel.send("Invalid role!"));
    if(!roleName) return(message.channel.send(`Please specify a role name.Be careful to cap letter,this command is case sinsitive.`));
