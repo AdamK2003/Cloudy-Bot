@@ -16,17 +16,16 @@ module.exports.run =(client, message, args) => {
    message.channel.send(`React to this message with ${emote} to get the \`${roleC}\` role!`).then(async m => { 
       m.react(emote);
    })
-   if (!user.bot) {
       if (reaction.emoji.id == emote) {
 
           const { guild } = reaction.message
 
           const member = guild.members.cache.find(member => member.id === user.id); //find the member who reacted (because user and member are seperate things)
-          const target = message.guild.member(user);
+          const target = message.guild.member(member);
 
          target.roles.add(roleC);
 
-      }}
+      }
 };
 
 module.exports.help = {
