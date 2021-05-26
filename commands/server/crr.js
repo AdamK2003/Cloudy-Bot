@@ -13,9 +13,19 @@ module.exports.run =(client, message, args) => {
      if(message.member.roles.highest.position < roleC) {
       message.channel.send('You do not have a high enough role to add this role to a react role message.'); }
 
-   message.channel.send(`React to this message with ${emote} to get the \`${roleName}\` role!`).then(async m => { 
+   message.channel.send(`React to this message with ${emote} to get the \`${roleC}\` role!`).then(async m => { 
       m.react(emote);
    })
+   if (!user.bot) {
+      if (reaction.emoji.id == emote) { //if the user reacted with the right emoji
+
+          const { guild } = reaction.message //store the guild of the reaction in variable
+
+          const member = guild.members.cache.find(member => member.id === user.id); //find the member who reacted (because user and member are seperate things)
+
+          member.roles.add(roleC); //assign selected role to member
+
+      }}
 };
 
 module.exports.help = {
