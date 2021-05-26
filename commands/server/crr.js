@@ -23,7 +23,7 @@ try {
       users.roles.add(roleC);
 	}
 } catch (error) {
-	console.error('Failed to remove reactions.');
+	console.error('Failed to remove reactions or to add the role.');
 }
 
 };
