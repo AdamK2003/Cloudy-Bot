@@ -13,7 +13,7 @@ module.exports.run =(client, message, args) => {
      if(message.member.roles.highest.position < roleC) {
       message.channel.send('You do not have a high enough role to add this role to a react role message.'); }
 
-   message.channel.send(`React to this message with \`${emote}\` to get the \`${roleName}\` role!`).then(async m => { 
+   message.channel.send(`React to this message with ${emote} to get the \`${roleName}\` role!`).then(async m => { 
       m.react(emote);
    })
 
