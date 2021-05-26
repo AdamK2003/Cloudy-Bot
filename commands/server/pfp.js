@@ -2,20 +2,21 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports.run =(client, message, args) => {
 
-         const user_mention = message.mentions.users.first();
+         let mentionedUser = message.mentions.users.first() || message.author
+
 
          if (!args.length) {
 
             const embed = new MessageEmbed()
             .setColor("#4103fc")
-            .addField(`Pfp of ${message.author.tag}`, ` ${message.author.avatarURL}`)
+            .setImage(message.author.displayAvatarURL)
             
             return message.channel.send(embed);
          } else {
 
             const embed = new MessageEmbed()
             .setColor("#4103fc")
-            .addField(`Ptofile picture of ${message.author.tag}`, ` ${user_mention.avatarURL}`)
+            .setImage(mentionedUser.displayAvatarURL)
            
             return message.channel.send(embed);
          }
