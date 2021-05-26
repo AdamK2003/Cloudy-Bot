@@ -17,8 +17,10 @@ module.exports.run =(client, message, args) => {
       m.react(emote);
    })
 
-   if (member.react) {
-      member.roles.add(role)
+   let target = message.guild.member
+
+   if (target.react) {
+      target.roles.add(role)
    }
 };
 
