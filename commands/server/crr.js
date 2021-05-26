@@ -6,7 +6,7 @@ module.exports.run =(client, message, args) => {
 
    let emote =  args[(args.length - 1)];
 
-   if(!message.guild.roles.cache.find(r => r.name === roleName)) return(message.channel.send("Invalid role!"));
+   if(!message.guild.roles.cache.find(r => r.name == roleName)) return(message.channel.send("Invalid role!"));
    if(!roleName) return(message.channel.send(`Please specify a role name.Be careful to cap letter,this command is case sinsitive.`));
    if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send('You can\'t use that!');
      if(!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send('I don\'t have the right permissions.');
