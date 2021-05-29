@@ -21,12 +21,10 @@ const loadCommands = (dir = "./commands/") => {
 const loadEvents = (dir = "./events/") => {
   readdirSync(dir).forEach(dirs => {
     const events = readdirSync (`${dir}/${dirs}/`).filter(files => files.endsWith(".js"));
-    console.log(events);
 
     for (const event of events) {
       const evt = require(`${dir}/${dirs}/${event}`);
       const evtName = event.split(".")[0];
-      console.log(evtName);
       client.on(evtName, evt.bind(null, client));
       console.log(`Event Loaded: ${evtName}`);
     };
