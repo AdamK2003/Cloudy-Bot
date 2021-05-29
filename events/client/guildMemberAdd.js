@@ -4,7 +4,7 @@ module.exports = (client, member) => {
    const embed = new MessageEmbed()
             .setColor("RANDOM")
             .setDescription(`Welcome ${member.displayName} to the server!`)
-            .setThumbnail(user_mention.avatarURL({format: "png", dynamic: true, size: 128}))
+            .setThumbnail(member.avatarURL({format: "png", dynamic: true, size: 128}))
             .setFooter(`User ID: ${member.id}`)
             .setTimestamp();
             
