@@ -23,7 +23,7 @@ const loadEvents = (dir = "./events/") => {
     const events = readdirSync (`${dir}/${dirs}/`).filter(files => files.endsWith(".js"));
     console.log(events);
 
-    for (const event of commands) {
+    for (const event of events) {
       const evt = require(`${dir}/${dirs}/${file}`);
       const evtName = event.split(".")[0];
       client.log(evtName);
