@@ -8,5 +8,5 @@ module.exports = (client, member) => {
             .setFooter(`User id: ${member.id}`)
             .setTimestamp();
             
-            client.channels.cache.get('846084493184860172').send(embed)
+            client.channels.cache.get('846084493184860172').send(embed);
 }
