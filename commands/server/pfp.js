@@ -17,7 +17,7 @@ module.exports.run =(client, message, args) => {
             const embed = new MessageEmbed()
             .setColor("#4103fc")
             .setDescription("Nice pfp!")
-            .setImage(user_mention.avatarURL({format: "png", dynamic: true, size: 128}))
+            .setImage(user_mention.avatarURL({format: "png", dynamic: true, size: 512}))
            
             return message.channel.send(embed);
          }
