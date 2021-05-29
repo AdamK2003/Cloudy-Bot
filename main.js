@@ -18,79 +18,24 @@ const loadCommands = (dir = "./commands/") => {
   });
 };
 
+const loadEvents = (dir = "./events/") => {
+  readdirSync(dir).forEach(dirs => {
+    const events = readdirSync (`${dir}/${dirs}/`).filter(files => files.endsWith(".js"));
+    console.log(events);
+
+    for (const event of commands) {
+      const evt = require(`${dir}/${dirs}/${file}`);
+      const evtName = event.split(".")[0];
+      client.log(evtName);
+      client.on(evtName, evt.bind(null, client));
+      client.log(`Event Loaded: ${evtName}`);
+    };
+  });
+};
+
 loadCommands();
+loadEvents();
 
-client.on('message', message => {
-  if (!message.content.startsWith(process.env.PREFIX) || message.author.bot) return;
-  const args = message.content.slice(process.env.PREFIX.length).split(/ +/);
-  //agrs coupe la commande en plusieurs parti a partir de " " ( !pfp @test @test& = @test, @test1)
-  const commandName = args.shift().toLowerCase();
-  // va garder seulement la command (!pfp @test @test& = @test, @test1 = !pfp)
+client.mongoose.init();
 
-
-  const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.help.aliases && cmd.help.aliases.includes(commandName));
-  console.log(client.commands);
-  if (!command) return;
-
-  if (command.help.args && !args.length) {
-    let noArgsReply = `${message.author} This command requires arguments.`;
-
-    if (command.help.usage) noArgsReply += `\nUsage: ${process.env.PREFIX}${command.help.name} ${command.help.usage}`
-
-    return message.channel.send(noArgsReply);
-  }
-
-  if (!client.cooldowns.has(command.help.name)) {
-    client.cooldowns.set(command.help.name, new Collection());
-  }
-
-  const timeNow = Date.now();
-  const tStamps = client.cooldowns.get(command.help.name);
-  const cdAmount = (command.help.cooldown || 0) * 1000;
-  console.log(client.cooldowns);
-
-  if (tStamps.has(message.author.id)) {
-   const cdExpirationTime = tStamps.get(message.author.id) + cdAmount;
-
-   if (timeNow < cdExpirationTime) {
-     timeLeft = (cdExpirationTime - timeNow) / 1000;
-     return message.channel.send(`${message.author} Please wait ${timeLeft.toFixed(0)}s before typing this command again!`);
-   }
-  }
-
-  tStamps.set(message.author.id, timeNow);
-  setTimeout(() => tStamps.delete(message.author.id), cdAmount);
-
-  command.run(client, message, args);
-
-  client.mongoose.init();
-});
-
-client.on('ready', () => {
-
-    console.log(`Logged in as ${client.user.tag}!`);
-if(process.env.ENVIRONMENT == "testing") {
-    client.user.setPresence({
-      status: 'online',
-      activity: {
-          name: "TESTING MODE | My Prefix is " + process.env.PREFIX,
-          type: "WATCHING"
-      }
-  })
-} else {
-    client.user.setPresence({
-      status: 'online',
-      activity: {
-          name: "Visual Studio Code",
-          type: "PLAYING"
-      }
-  })
-}
-})
-client.on("message", message=> {
-  if(message.content.startsWith('[Suggestion]')) {
-    message.react('👍');
-    message.react('👎');
-  }
-});
 client.login(process.env.TOKEN);
