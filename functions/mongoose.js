@@ -16,6 +16,6 @@ module.exports = {
 
       mongoose.connect(process.env.DB, mongOptions);
       mongoose.Promise = global.Promise;
-      mongoose.connection.on("connected", () => console.log("Nsg Bot is now connected to the MongoDB Database"));
+      mongoose.connection.on("connected", () => console.log("The bot is now connected to the MongoDB Database"));
    }
 }
