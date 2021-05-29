@@ -24,7 +24,7 @@ const loadEvents = (dir = "./events/") => {
     console.log(events);
 
     for (const event of events) {
-      const evt = require(`${dir}/${dirs}/${file}`);
+      const evt = require(`${dir}/${dirs}/${event}`);
       const evtName = event.split(".")[0];
       client.log(evtName);
       client.on(evtName, evt.bind(null, client));
