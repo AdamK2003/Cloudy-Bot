@@ -5,9 +5,6 @@ module.exports.run =(client, message, args) => {
          const user_mention = message.mentions.users.first();
 
          if (!args.length) {
-            let member = message.mentions.members.first() || message.member,
-               user = member.user;
-
 
             const embed = new MessageEmbed()
             .setColor("#ffff00")
@@ -15,7 +12,7 @@ module.exports.run =(client, message, args) => {
             .addField(`User name: `, message.author.tag)
             .addField(`User nickname: `, message.author.username)
             .setImage(message.author.avatarURL({format: "png", dynamic: true, size: 512}))
-            .addField('Roles:', user.roles.map(r => `${r}`).join(' | '), true)
+            //.addField('Roles:', user.roles.map(r => `${r}`).join(' | '), true)
             .setFooter(`ID: ${message.author.id}`)
             
             return message.channel.send(embed);
@@ -27,7 +24,7 @@ module.exports.run =(client, message, args) => {
             .addField(`User name: `, user_mention.tag)
             .addField(`User nickname: `, user_mention.username)
             .setImage(user_mention.avatarURL({format: "png", dynamic: true, size: 512}))
-            .addField('Roles:', user.roles.map(r => `${r}`).join(' | '), true)
+            //.addField('Roles:', user.roles.map(r => `${r}`).join(' | '), true)
             .setFooter(`ID: ${user_mention.id}`)
            
             return message.channel.send(embed);
