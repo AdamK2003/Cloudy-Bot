@@ -10,7 +10,7 @@ module.exports.run =(client, message, args) => {
             .addField(`Member: `, message.guild.memberCount, true)
             //.addField(`\nNumber of text channels `, message.guild.channels.filter((c) => c.type === "text").size, true)
             //.addField(`\nNumber of voice channels `, message.guild.channels.filter((c) => c.type === "voice").size, true)
-            .setImage(serverIcon({format: "png", dynamic: true, size: 512}))
+            .setImage(serverIcon)
             .setFooter(`Server ID: ${message.guild.id}`)
            
             message.channel.send(embed);
