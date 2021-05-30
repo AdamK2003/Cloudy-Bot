@@ -2,7 +2,6 @@ const { MessageEmbed } = require("discord.js");
 const client = new Discord.Client({ ws: { intents: ['GUILD_PRESENCES', 'GUILD_MEMBERS'] }});
 
 module.exports = (client, member) => {
-   const client = new Discord.Client({ ws: { intents: ['GUILD_PRESENCES', 'GUILD_MEMBERS'] }});
 
    const embed = new MessageEmbed()
             .setColor("RANDOM")
