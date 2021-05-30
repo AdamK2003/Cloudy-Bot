@@ -1,5 +1,4 @@
 const { MessageEmbed } = require("discord.js");
-const client = new Discord.Client({ ws: { intents: ['GUILD_PRESENCES', 'GUILD_MEMBERS'] }});
 
 module.exports = (client, member) => {
 
