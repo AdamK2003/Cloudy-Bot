@@ -11,7 +11,7 @@ module.exports.run =(client, message, args) => {
             .addField(`Account Created the:`, ` ${message.author.createdAt}`)
             .addField(`User name: `, message.author.tag)
             .addField(`User nickname: `, message.author.username)
-            .setImage(message.author.avatarURL({format: "png", dynamic: true, size: 512}))
+            .addField("User profile picture: ",message.author.avatarURL({format: "png", dynamic: true, size: 512}))
             //.addField('Roles:', user.roles.map(r => `${r}`).join(' | '), true)
             .setFooter(`ID: ${message.author.id}`)
             
@@ -23,7 +23,7 @@ module.exports.run =(client, message, args) => {
             .addField(`Account Created the:`, ` ${user_mention.createdAt}`)
             .addField(`User name: `, user_mention.tag)
             .addField(`User nickname: `, user_mention.username)
-            .setImage(user_mention.avatarURL({format: "png", dynamic: true, size: 512}))
+            .addField("User profile picture: ",user_mention.avatarURL({format: "png", dynamic: true, size: 512}))
             //.addField('Roles:', user.roles.map(r => `${r}`).join(' | '), true)
             .setFooter(`ID: ${user_mention.id}`)
            
