@@ -7,19 +7,39 @@ mongoose.connect(db)
 
 const Mute = require(process.env.ROOTDIR + '/models/mutes.js')
 
-
+const ms = require("ms")
 const Discord = require('discord.js')
 
 const { MessageEmbed } = require("discord.js");
 
-module.exports.run =(client, message, args) => {
+module.exports.run = async (client, message, args) => {
+
    const user = message.mentions.users.first();
       const target = message.guild.member(user);
 
+      let muteTime = (args[2] || '1y')
+
+      let role = message.guild.roles.cache.find(r => r.name === "muted");
+      if (!role) {
+         role = await message.guild.roles.create({
+            data: {
+               name: 'muted',
+               color: '#595959',
+               permissions: []
+            }
+         });
+            //perm
+         message.guild.channels.cache.forEach(async (channel, id) => {
+            await channel.updateOverwrite(role, {
+               SEND_MESSAGE: false,
+               ADD_REACTIONS: false,
+               CONNECT: false
+            });
+         });
+      }
+      
       let reason = args.slice(1).join(' ');
       if(!reason) reason = "None";
-
-      let role = message.guild.roles.cache.find(r => r.id === "809078514455543868");
 
        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('You can\'t use that!');
        if(!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send('I don\'t have the right permissions.');
@@ -32,14 +52,27 @@ module.exports.run =(client, message, args) => {
        const embed = new MessageEmbed()
        .setColor("#ff8400")
        .setAuthor(`By ${message.author.tag}`, message.author.displayAvatarURL())
-       .addField(`**Mute! 🔇**`, `${message.author.tag} muted ${user.tag}`)
+       .addField(`**Mute! 🔇**`, `${message.author.tag} muted ${user.tag} for ${ms(ms(muteTime))}.`)
        .addField(`**Reason:**`, `\`${reason}\``)
        .setTimestamp()
        
-         message.channel.send(embed).then(async m => {
-            await client.channels.cache.get("846084525636845599").send(embed);
-            target.roles.add(role);
-         })
+         await target.roles.add(role);
+         message.channel.send(embed);
+
+         setTimeout(() => {
+         target.roles.remove(role);
+
+         const embed = new MessageEmbed()
+       .setColor("#ff8400")
+       .setAuthor(`By console system`)
+       .addField(`**Unmute! 🔇**`, `I unmuted ${user.tag} for because his mute duration ended.`)
+       .addField(`**Reason:**`, `\`${reason}\``)
+       .setTimestamp()
+
+       client.channels.cache.get("846084525636845599").send(embed);
+
+         }, ms(muteTime));
+         
          
          const mutes = new Mute({
             _id: mongoose.Types.ObjectId(),
