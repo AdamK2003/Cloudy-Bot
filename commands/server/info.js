@@ -9,10 +9,10 @@ module.exports.run =(client, message, args) => {
             const embed = new MessageEmbed()
             .setColor("#ffff00")
             .addField(`Account Created the:`, ` ${message.author.createdAt}`)
-            //.addField(`Joined the server the: `, message.author.joinedAt.format('dddd, MMMM Do YYYY, HH:mm:ss'))
-            //.addField(`User roles: `, message.author.roles.map(r => `${r}`).join(' | '))
-            .addField(`User PFP:`, `${message.author.displayAvatarURL({ format : 'png'})}`)
-            .setAuthor(`${message.author.tag}`, `${message.author.displayAvatarURL({ format : 'png'})}`)
+            .addField(`User name: `, message.author.tag)
+            .addField(`User nickname: `, message.author.username)
+            .setImage(message.author.avatarURL({format: "png", dynamic: true, size: 512}))
+            .addField('Roles:', message.author.roles.map(r => `${r}`).join(' | '), true)
             .setFooter(`ID: ${message.author.id}`)
             
             return message.channel.send(embed);
