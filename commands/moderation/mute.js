@@ -17,9 +17,9 @@ module.exports.run = async (client, message, args) => {
    const user = message.mentions.users.first();
       const target = message.guild.member(user);
 
-      let muteTime = (args[2] || '1y')
+      let muteTime = (args[1] || '1y')
 
-      let role = message.guild.roles.cache.find(r => r.name === "muted");
+      let role = message.guild.roles.cache.find(r => r.name === "cloudy mute");
       if (!role) {
          role = await message.guild.roles.create({
             data: {
@@ -38,7 +38,7 @@ module.exports.run = async (client, message, args) => {
          });
       }
       
-      let reason = args.slice(1).join(' ');
+      let reason = args.slice(2).join(' ');
       if(!reason) reason = "None";
 
        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('You can\'t use that!');
@@ -62,9 +62,10 @@ module.exports.run = async (client, message, args) => {
 
          const embed = new MessageEmbed()
        .setColor("#ff8400")
-       .setAuthor(`By console system`)
-       .addField(`**Unmute! 🔇**`, `I unmuted ${user.tag} for because his mute duration ended.`)
-       .addField(`**Reason:**`, `\`${reason}\``)
+       .setAuthor(`By console`)
+       .addField(`**Unmute! 🔇**`, `I unmuted ${user.tag} because his mute duration ended.`)
+
+
        .setTimestamp()
 
        client.channels.cache.get("846084525636845599").send(embed);
