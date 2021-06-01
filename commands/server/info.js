@@ -5,26 +5,34 @@ module.exports.run =(client, message, args) => {
          const user_mention = message.mentions.users.first();
 
          if (!args.length) {
+            const user = message.author
+            const target = message.guild.member(user);
 
+            const mrole = target.roles.filter(r => r.name !== '@everyone').map(role => role.name).join(' | ')
             const embed = new MessageEmbed()
-            .setColor("#ffff00")
+            .setColor("RANDOM")
+            .setThumbnail(message.author.avatarURL())
             .addField(`Account Created the:`, ` ${message.author.createdAt}`)
             .addField(`User name: `, message.author.tag)
             .addField(`User nickname: `, message.author.username)
             .addField("User profile picture: ",message.author.avatarURL({format: "png", dynamic: true, size: 512}))
-            .addField('Roles:', message.member.roles.cache)
+            .addField('Roles: ', mrole)
             .setFooter(`ID: ${message.author.id}`)
             
             return message.channel.send(embed);
          } else {
-
+            const user = message.mentions.users.first();
+            const target = message.guild.member(user);
+      
+            const mrole = target.roles.filter(r => r.name !== '@everyone').map(role => role.name).join(' | ')
             const embed = new MessageEmbed()
-            .setColor("#ffff00")
+            .setColor("RANDOM")
+            .setThumbnail(user_mention.avatarURL())
             .addField(`Account Created the:`, ` ${user_mention.createdAt}`)
             .addField(`User name: `, user_mention.tag)
             .addField(`User nickname: `, user_mention.username)
             .addField("User profile picture: ",user_mention.avatarURL({format: "png", dynamic: true, size: 512}))
-            .addField('Roles:', user_mention.roles.cache)
+            .addField('Roles: ', mrole)
             .setFooter(`ID: ${user_mention.id}`)
            
             return message.channel.send(embed);
