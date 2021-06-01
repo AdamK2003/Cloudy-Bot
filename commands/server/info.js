@@ -7,7 +7,7 @@ module.exports.run =(client, message, args) => {
          let rolemap = message.guild.roles.cache
             .sort((a, b) => b.position - a.position)
             .map(r => r)
-            .join(",");
+            .join(" | ");
             if (rolemap.length > 1024) rolemap = "To many roles to display";
             if (!rolemap) rolemap = "No roles";
 
@@ -19,7 +19,7 @@ module.exports.run =(client, message, args) => {
             .addField(`User name: `, message.author.tag)
             .addField(`User nickname: `, message.author.username)
             .addField("User profile picture: ",message.author.avatarURL({format: "png", dynamic: true, size: 512}))
-            .addField('Roles:', rolemap)
+            .addField('Roles:', message.author.roles.cache)
             .setFooter(`ID: ${message.author.id}`)
             
             return message.channel.send(embed);
