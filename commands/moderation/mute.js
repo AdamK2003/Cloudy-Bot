@@ -94,7 +94,7 @@ module.exports.help = {
    aliases: ['mute'],
    category: 'moderation',
    description: "mute a user",
-   usage: "(member) (reason)",
+   usage: "(member) (duration) (reason)",
    cooldown: 0,
    args: true
 };     
