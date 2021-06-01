@@ -4,13 +4,6 @@ module.exports.run =(client, message, args) => {
 
          const user_mention = message.mentions.users.first();
 
-         let rolemap = message.guild.roles.cache
-            .sort((a, b) => b.position - a.position)
-            .map(r => r)
-            .join(" | ");
-            if (rolemap.length > 1024) rolemap = "To many roles to display";
-            if (!rolemap) rolemap = "No roles";
-
          if (!args.length) {
 
             const embed = new MessageEmbed()
@@ -19,7 +12,7 @@ module.exports.run =(client, message, args) => {
             .addField(`User name: `, message.author.tag)
             .addField(`User nickname: `, message.author.username)
             .addField("User profile picture: ",message.author.avatarURL({format: "png", dynamic: true, size: 512}))
-            .addField('Roles:', message.author.roles.cache)
+            .addField('Roles:', message.member.roles.cache)
             .setFooter(`ID: ${message.author.id}`)
             
             return message.channel.send(embed);
@@ -31,7 +24,7 @@ module.exports.run =(client, message, args) => {
             .addField(`User name: `, user_mention.tag)
             .addField(`User nickname: `, user_mention.username)
             .addField("User profile picture: ",user_mention.avatarURL({format: "png", dynamic: true, size: 512}))
-            .addField('Roles:', rolemap)
+            .addField('Roles:', user_mention.roles.cache)
             .setFooter(`ID: ${user_mention.id}`)
            
             return message.channel.send(embed);
