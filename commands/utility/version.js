@@ -5,7 +5,7 @@ module.exports.run =(client, message, args) => {
    var serverIcon = message.guild.iconURL();
 
    const embed = new MessageEmbed()
-   .addTitle(`-----Version Calendar-----`)
+   .addDescription(`**-----Version Calendar-----**`)
    .addField(`Alpha:`, `
    1.0: Start
    1.1: Mod fully done
