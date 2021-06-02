@@ -16,7 +16,7 @@ module.exports.run =(client, message, args) => {
             .addField(`Server created the: `, ` ${message.guild.createdAt}`, true)
             .addField(`Member: `, message.guild.memberCount, true)
             .addField(`\nNumber of channels: `, message.guild.channels.size, true)
-            .addField(`\nNumber of categories: `, message.guild.category.size, true)
+            //.addField(`\nNumber of categories: `, message.guild.category.size, true)
             .addField(`Roles:`, rolemap)
             .setThumbnail(serverIcon)
             .setFooter(`Server ID: ${message.guild.id}`)
