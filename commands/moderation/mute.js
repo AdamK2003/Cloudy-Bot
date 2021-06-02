@@ -23,7 +23,7 @@ module.exports.run = async (client, message, args) => {
       if (!role) {
          role = await message.guild.roles.create({
             data: {
-               name: 'muted',
+               name: 'cloudy mute',
                color: '#595959',
                permissions: []
             }
