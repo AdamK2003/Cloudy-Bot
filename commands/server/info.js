@@ -8,8 +8,8 @@ module.exports.run =(client, message, args) => {
             const user = message.author
             const target = message.guild.member(user);
 
-            const mrole = target.roles.cache.filter(r => r.name !== '@everyone').map(role => role.name).join(' | ');
-            
+            const mrole = target.roles.cache.filter(r => r !== '@everyone').map(role => role).join(' | ');
+
             const embed = new MessageEmbed()
             .setColor("RANDOM")
             .setThumbnail(message.author.avatarURL())
@@ -26,7 +26,7 @@ module.exports.run =(client, message, args) => {
             const target = message.guild.member(user);
       
             const mrole = target.roles.cache.filter(r => r.name !== '@everyone').map(role => role.name).join(' | ');
-            
+
             const embed = new MessageEmbed()
             .setColor("RANDOM")
             .setThumbnail(user_mention.avatarURL())
