@@ -1,3 +1,5 @@
+const { MessageEmbed } = require("discord.js");
+
 const { MessageEmbed, Message, Guild } = require("discord.js");
 
 module.exports = (client, member) => {
