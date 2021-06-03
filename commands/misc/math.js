@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports.run =(client, message, args) => {
 
          const calcul = args.slice(1).join(' ');
-         if (calcul(NaN)) return("Please submit a calcul to do!");
+         if (calcul === NaN) return("Please submit a calcul to do!");
 
          if (!args.length) {message.channel.send(`Please submit a calcul to do!`)} 
 
