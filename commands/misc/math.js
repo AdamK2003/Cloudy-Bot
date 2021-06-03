@@ -7,7 +7,7 @@ module.exports.run =(client, message, args) => {
 
          if (!args.length) {message.channel.send(`Please submit a calcul to do!`)} 
 
-           Math.calcul() = result
+           Math(calcul) = result
             return message.channel.send(`${calcul} is equal to `,result);
          
       };
