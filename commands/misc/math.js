@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+const math = require('discord-math');
 
 module.exports.run =(client, message, args) => {
 
@@ -7,8 +8,7 @@ module.exports.run =(client, message, args) => {
 
          if (!args.length) {message.channel.send(`Please submit a calcul to do!`)} 
 
-           Math(calcul) = result
-            return message.channel.send(`${calcul} is equal to `,result);
+            return message.channel.send(`${math.calculate(calcul)}.`);
          
       };
     
