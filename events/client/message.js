@@ -1,8 +1,9 @@
 const { Collection } = require('discord.js');
+const { DEFAULTSETTINGS: defaults } = require("../../config");
 
 module.exports = (client, message) => {
-   if (!message.content.startsWith(process.env.PREFIX) || message.author.bot) return;
-  const args = message.content.slice(process.env.PREFIX.length).split(/ +/);
+   if (!message.content.startsWith(defaults.prefix) || message.author.bot) return;
+  const args = message.content.slice(defaults.prefix.length).split(/ +/);
   //agrs coupe la commande en plusieurs parti a partir de " " ( !pfp @test @test& = @test, @test1)
   const commandName = args.shift().toLowerCase();
   // va garder seulement la command (!pfp @test @test& = @test, @test1 = !pfp)
@@ -14,7 +15,7 @@ module.exports = (client, message) => {
   if (command.help.args && !args.length) {
     let noArgsReply = `${message.author} This command requires arguments.`;
 
-    if (command.help.usage) noArgsReply += `\nUsage: ${process.env.PREFIX}${command.help.name} ${command.help.usage}`
+    if (command.help.usage) noArgsReply += `\nUsage: ${defaults.prefix}${command.help.name} ${command.help.usage}`
 
     return message.channel.send(noArgsReply);
   }

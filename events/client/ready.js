@@ -4,7 +4,7 @@ module.exports = client => {
        client.user.setPresence({
          status: 'online',
          activity: {
-             name: "TESTING MODE | My Prefix is " + process.env.PREFIX,
+             name: "TESTING MODE",
              type: "WATCHING"
          }
      })
@@ -12,7 +12,7 @@ module.exports = client => {
        client.user.setPresence({
          status: 'online',
          activity: {
-             name: "Visual Studio Code",
+             name: "Visual Studio Code | Making difficult commands",
              type: "PLAYING"
          }
      })
